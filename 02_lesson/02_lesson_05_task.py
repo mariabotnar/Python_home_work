@@ -11,7 +11,7 @@ def month_to_season(month):
     elif month in [9, 10, 11]:
         print ('Осень')
     else:
-        print ('Введите корректный номер месяца')
+        print ('Введите правильный номер месяца')
 
 month_to_season(int(input('Номер месяца: ')))
 
