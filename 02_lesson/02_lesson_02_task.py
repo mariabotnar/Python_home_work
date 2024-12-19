@@ -1,4 +1,4 @@
-is_year_leap = input('Введите год: ')
+is_year_leap = input('Введите год - ')
 year = int(is_year_leap)
 print(year)
 

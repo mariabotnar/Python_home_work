@@ -7,4 +7,4 @@ def square (a):
 a = float(input('Cторона квадрата: '))
 result = square(a)
 rounded_result = math.ceil(result)
-print(f'Округлённая в большую сторону площадь - {rounded_result}')
+print(f'Округлённая в большую сторону площадь квадрата - {rounded_result}')
