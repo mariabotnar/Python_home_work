@@ -11,7 +11,6 @@ from selenium.webdriver.support import expected_conditions as EC
 def driver():
     # указываем путь к драйверу
     driver = webdriver.Chrome()
-    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     yield driver
     driver.quit()
 
