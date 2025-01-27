@@ -72,12 +72,6 @@ def test_01_form(driver):
     assert color_zip == alert_danger_color, f"Expected {alert_danger_color}, but got {color_zip}"
 
     # проверяем цвет заполненных полей (ожидаем зелёный)
-    # alert_success_color = "rgba(209, 231, 221, 1)"
-    # fields = [first_name, last_name, address, email, phone_number, city, country, job_position, company]
-    # for field in fields:
-    #     field_color = field.get_attribute("webkit-tap-highlight-color")
-    #     assert field_color == alert_success_color, f"Expected {alert_success_color} for {field.get_attribute('name')}, but got {field_color}"
-
     fields_to_check = ["first-name", "last-name", "address", "e-mail", "phone",
                        "city", "country", "job-position", "company"]
     for field_name in fields_to_check:
@@ -85,3 +79,5 @@ def test_01_form(driver):
             (By.CSS_SELECTOR, f"div.alert.py-2.alert-success[id='{field_name}']")))
         background_color = field.value_of_css_property("background-color")
         assert background_color == "rgba(209, 231, 221, 1)"
+
+    # тест завершён

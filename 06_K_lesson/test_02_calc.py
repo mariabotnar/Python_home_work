@@ -46,4 +46,6 @@ def test_02_calc(driver):
     # закрываем браузер
     driver.quit()
 
+    # тест завершён
+
 

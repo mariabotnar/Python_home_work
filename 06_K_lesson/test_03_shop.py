@@ -65,11 +65,8 @@ def test_03_shop(driver):
     # читаем итоговую стоимость
     total = driver.find_element(By.CSS_SELECTOR, "div.summary_total_label").text
     print(total)
-    sleep(5)
-    return total
 
-# проверяем итоговую сумму ЗДЕСЬ ТЕСТ ПАДАЕТ ПОМОГИТЕ )
-def test_purchase_total(driver):
+    # проверяем итоговую сумму
     total = driver.find_element(By.CSS_SELECTOR, "div.summary_total_label").text
     print(total)
     assert total == 'Total: $58.29'
