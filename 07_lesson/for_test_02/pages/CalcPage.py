@@ -13,16 +13,20 @@ class CalcPage:
 
     def delay(self):
         delay = self.driver.find_element(By.CSS_SELECTOR, 'input#delay')
+        delay.clear()
         delay.send_keys('45')
 
     def calculator(self):
         self.driver.find_element(By.XPATH, '//span[text()="7"]').click()
+        self.driver.implicitly_wait(5)
         self.driver.find_element(By.XPATH, '//span[text()="+"]').click()
+        self.driver.implicitly_wait(5)
         self.driver.find_element(By.XPATH, '//span[text()="8"]').click()
+        self.driver.implicitly_wait(5)
         self.driver.find_element(By.XPATH, '//span[text()="="]').click()
 
-        WebDriverWait(self.driver, 45).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, ".screen"), "15"))
+        WebDriverWait(self.driver, 46).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, ".screen"), "15"))
 
     def result(self):
         result = self.driver.find_element(By.CSS_SELECTOR, ".screen").text
-        assert int(result) == 15
+        return int(result)

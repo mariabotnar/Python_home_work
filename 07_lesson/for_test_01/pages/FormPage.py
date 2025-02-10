@@ -1,8 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.core import driver
 
 
 class FormPage:
@@ -46,16 +42,9 @@ class FormPage:
         self.driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
 
     def zip_code_red(self):
-        alert_danger_color = "rgba(248, 215, 218, 1)"
         zip_code = self.driver.find_element(By.CSS_SELECTOR, "#zip-code")
-        color_zip = zip_code.value_of_css_property("background-color")
-        assert color_zip == alert_danger_color, f"Expected {alert_danger_color}, but got {color_zip}"
+        return zip_code.value_of_css_property("background-color")
 
-    def other_green(self):
-        fields_to_check = ["first-name", "last-name", "address", "e-mail", "phone",
-                           "city", "country", "job-position", "company"]
-        for field_name in fields_to_check:
-            field = self.driver.wait.until(EC.presence_of_element_located(
-                (By.CSS_SELECTOR, f"div.alert.py-2.alert-success[id='{field_name}']")))
-            background_color = field.value_of_css_property("background-color")
-            assert background_color == "rgba(209, 231, 221, 1)"
+    def other_green(self, field_name):
+        field = self.driver.find_element(By.CSS_SELECTOR, f"#{field_name}")
+        return field.value_of_css_property("background-color")
